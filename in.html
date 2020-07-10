@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">        
+        <title>Personal EXpense</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            body{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+            }
+        </style>
+        
+       
+    </head>
+    <body>
+        <h1 id="headingTotal"></h1>
+        <input id="inputAmount"  type="text"></input>
+        <button id="btnAddExpense">+</button>
+
+
+        <script>
+            //get the heading element
+
+             const headingEl = document.querySelector("#headingTotal");
+
+            // initialise value of expense 0
+            let totalExpense = 0;
+
+            //set the heading element to total expense
+
+             headingEl.textContent = totalExpense;
+
+          //onButtonClick add inputAmount to totalExpense 
+             function addExpenseToTotal()
+             {
+                // input value of expense from inputAmount
+                const inputElement = document.querySelector("#inputAmount");
+                const textAmount = inputElement.value;
+                console.log({  textAmount  });
+                // convert it to number
+                const expense = parseInt(textAmount,10);
+                console.log({ expense });
+                //add that to totalExpense
+                 totalExpense = totalExpense + expense;
+                // console.log({ totalExpense });
+
+                //set the heading element to totalExpense
+
+                headingEl.textContent = totalExpense;
+
+
+             } 
+             
+              //get the button element
+               const element = document.querySelector("#btnAddExpense");
+              // console.log(element);
+
+             //listen to click event
+
+            element.addEventListener("click",addExpenseToTotal, false);
+        
+               
+        </script>
+
+    </body>
+</html>
